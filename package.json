@@ -1,0 +1,26 @@
+{
+  "name": "custom-elements",
+  "version": "1.0.0",
+  "description": "A set of custom elements to learn how to use lit-Element &amp; lit-HTML",
+  "main": "index.html",
+  "dependencies": {
+    "lit-element": "^2.3.1"
+  },
+  "devDependencies": {
+    "tslint": "^6.1.0",
+    "typescript": "^3.8.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evanwills/custom-elements.git"
+  },
+  "author": "Evan Wills",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evanwills/custom-elements/issues"
+  },
+  "homepage": "https://github.com/evanwills/custom-elements#readme"
+}

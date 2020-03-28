@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width, height=device-height" />
+		<title>&lt;option-builder&gt; Custom element</title>
+		<link rel="stylesheet" type="text/css" href="web-components.css" />
+		<script type="module" src="src/ts/option-builder.js"></script>
+	</head>
+	<body>
+		<h1><code style="font-size:1.35em; padding-right: 0.5rem;">&lt;option-builder&gt;</code> Custom element</h1>
+
+		<h2>What does it do?</h2>
+		<p><code>&lt;option-builder&gt;</code> allows less technical users to create a tilda/carat separated string (e.g. <code>apple^Apple~banana^Banana~orange^Orange~pear^Pear~plum^Plum</code>) used by ACU Conference Form Builder to build <code>&lt;SELECT&gt;</code> lists and radio/checkbox inputs for user input fields or merchandise options</p>
+
+		<p>The tilda/carat format is not very intuitive for non-technical users and not easy to get right for anyone. <code>&lt;option-builder&gt;</code> makes it possible for anyone to create options in a fairly intuitive way.</p>
+
+		<h2>Example:</h2>
+		<div id="option-wrap" class="option-wrap">
+			<p>
+				<label for="fieldLabel">Field label</label>
+				<input type="text" id="fieldLabel" name="fieldLabel" value="Favourite fruit" />
+			</p>
+			<p>
+				<label for="fieldType">Field type</label>
+				<select id="fieldType">
+					<option value="text">Text</option>
+					<option value="textarea">Textarea</option>
+					<option value="select" selected="selected">Select</option>
+					<option value="radio">Radio</option>
+					<option value="checkbox">Checkbox</option>
+					<option value="section">Section</option>
+				</select>
+			</p>
+			<p>
+				<label for="multiOption">Options</label>
+				<input type="text" id="multiOption" name="multiOption" value="apple^Apple~orange^Orange~banana^Banana~pear^Pear" />
+			</p>
+
+			<option-builder controller-id="fieldType" source-id="multiOption" label-id="fieldLabel" class="hide"></option-builder>
+		</div>
+	</body>
+</html>
