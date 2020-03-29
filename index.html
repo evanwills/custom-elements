@@ -6,7 +6,9 @@
 		<meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width, height=device-height" />
 		<title>&lt;option-builder&gt; Custom element</title>
 		<!-- <link rel="stylesheet" type="text/css" href="web-components.css" /> -->
-		<script type="module" src="src/ts/option-builder.js"></script>
+		<script type="module" src="node_modules/lit-element/lit-element.js"></script>
+		<script type="module" src="src/js/labeled-input.js"></script>
+		<script type="module" src="src/js/option-builder.js"></script>
 	</head>
 	<body>
 		<h1><code style="font-size:1.35em; padding-right: 0.5rem;">&lt;option-builder&gt;</code> Custom element</h1>
@@ -38,7 +40,7 @@
 				<input type="text" id="multiOption" name="multiOption" value="apple^Apple~orange^Orange~banana^Banana~pear^Pear" />
 			</p>
 
-			<option-builder controller-id="fieldType" source-id="multiOption" label-id="fieldLabel" class="hide"></option-builder>
+			<option-builder controllerid="fieldType" sourceid="multiOption" labelid="fieldLabel" class="hide"></option-builder>
 		</div>
 	</body>
 </html>

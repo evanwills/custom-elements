@@ -1,7 +1,10 @@
 // Import the LitElement base class and html helper function
-import { LitElement, css, customElements, html } from 'lit-element'
+import { LitElement, css, html } from 'lit-element'
 
 // Extend the LitElement base class
+/**
+ * <labeled-input id="0" labelonly value="" label="" maxlength="100"></labeled-input>
+ */
 class LabeledInput extends LitElement {
   constructor () {
     super()
@@ -123,7 +126,7 @@ class LabeledInput extends LitElement {
                name="option-value-${this.optID}"
                id="option-value-${this.optID}"
                .value="${this.valueInput}"
-               .maxlength="${this.maxLength}"
+               .maxlength="${this._maxLength}"
                ?hasError="${this.hasErrorValue}"
                class="option-value__input"
                pattern="^[\w0-9 .'()/\-!?&]*$"
@@ -137,7 +140,7 @@ class LabeledInput extends LitElement {
                name="option-label-${this.optID}"
                id="option-label-${this.optID}"
                .value="${this.labelInput}"
-               .maxlength="${this.maxLength}"
+               .maxlength="${this._maxLength}"
                ?hasError="${this.hasErrorInput}"
                class="option-label__input"
                pattern="^[\w0-9 .'()/\-!?&]*$"
@@ -152,6 +155,15 @@ class LabeledInput extends LitElement {
     `
   }
 
+  /**
+   * Get a callback function to beuse as the event handler for
+   * onchange events. Sets the value for the "label" or "value"
+   * properties for the custom element
+   *df
+   * @param {string} type Either "label" or "value"
+   *
+   * @returns function
+   */
   getInputChange (type) {
     const labeledInput = this
     const thisType = (type === 'label') ? 'label' : 'value'
@@ -162,6 +174,16 @@ class LabeledInput extends LitElement {
     }
   }
 
+  /**
+   * Get a callback function to be used as the event handler for
+   * onKeyUP events for sanitising user input
+   *
+   * @param {number} maxLength the maximum length the user input
+   *                           allows
+   *
+   * @returns {function} Strip out any invalid characters from a
+   *                     user input
+   */
   getSanitise (maxLength) {
     return function (e) {
       const tmp = this.value.replace(/[^\w0-9 .'()\\/\-!?&]+/, '')
@@ -169,6 +191,13 @@ class LabeledInput extends LitElement {
     }
   }
 
+  /**
+   * testValueLabel compares the value & label inputs to check if
+   * there are any issues with them and updated the all the error
+   * state for the element
+   *
+   * @returns void
+   */
   testValueLabel () {
     if (this._labelOnly === true) {
       // Label only so make the value input match the label input
@@ -219,4 +248,4 @@ class LabeledInput extends LitElement {
 }
 
 // Register the new element with the browser.
-customElements.define('label-input', LabeledInput)
+customElements.define('labeled-input', LabeledInput)
