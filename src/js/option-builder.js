@@ -1,10 +1,16 @@
 // Import the LitElement base class and html helper function
-import { LitElement, html } from 'lit-element';
+import { LitElement, customElements, css, html } from 'lit-element'
 
 // Extend the LitElement base class
 class OptionBuilder extends LitElement {
   constructor () {
     super()
+  }
+
+  static get styles () {
+    return css`
+      div { color: red; }
+    `
   }
 
   /**
@@ -13,7 +19,7 @@ class OptionBuilder extends LitElement {
    * You must provide an implementation of `render` for any element
    * that uses LitElement as a base class.
    */
-  render() {
+  render () {
     /**
      * `render` must return a lit-html `TemplateResult`.
      *
@@ -23,9 +29,8 @@ class OptionBuilder extends LitElement {
     return html`
       <!-- template content -->
       <p>A paragraph</p>
-    `;
+    `
   }
 }
 // Register the new element with the browser.
-customElements.define('option-builder', OptionBuilder);
-
+customElements.define('option-builder', OptionBuilder)
