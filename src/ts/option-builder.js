@@ -13,7 +13,7 @@ class OptionBuilder extends LitElement {
    * You must provide an implementation of `render` for any element
    * that uses LitElement as a base class.
    */
-  render(){
+  render() {
     /**
      * `render` must return a lit-html `TemplateResult`.
      *
